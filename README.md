@@ -2,6 +2,7 @@ TryAgain
 ========
 TryAgain is a listener is an implementation of interface - IRetryAnalyzer, that reruns the failed test cases specified number of times.
 All teams who sees false failures in their automation can make use of this feature in order to rerun the failed test cases and increase the pass rate
+<br>
 Follow the below two simple steps in order to use TryAgain
 <br>
 1. Add dependency to pom file
