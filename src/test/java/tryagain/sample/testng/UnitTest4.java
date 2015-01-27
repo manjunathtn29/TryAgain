@@ -3,13 +3,11 @@ package tryagain.sample.testng;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.paypal.test.utilities.logging.SimpleLogger;
 
 /**
  * testNG dataprovider
  */
 public class UnitTest4 extends Thread {
-	private SimpleLogger logger;
 
 	@DataProvider(name = "myDataProvider")
 	public Object[][] data() {
@@ -31,15 +29,15 @@ public class UnitTest4 extends Thread {
 
 	@Test(dataProvider = "myDataProvider", groups = { "datatest" })
 	public void method1(String site, String currency, float price) {
-		logger.info("site" + site);
-		logger.info("price" + price + "(" + currency + ")");
+		System.out.println("site" + site);
+		System.out.println("price" + price + "(" + currency + ")");
 		Assert.assertEquals(false, true);
 	}
 
 	@Test(dataProvider = "myDataProvider1", groups = { "datatest" })
 	public void method2(String site, String currency, float price) {
-		logger.info("site" + site);
-		logger.info("price" + price + "(" + currency + ")");
+		System.out.println("site" + site);
+		System.out.println("price" + price + "(" + currency + ")");
 		Assert.assertEquals(false, true);
 	}
 

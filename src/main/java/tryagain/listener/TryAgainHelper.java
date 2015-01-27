@@ -3,7 +3,6 @@ package tryagain.listener;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
-import com.paypal.test.utilities.logging.SimpleLogger;
 
 
 import tryagain.objects.TryAgainParams;
@@ -12,7 +11,6 @@ import tryagain.objects.TryAgainParams;
 public final class TryAgainHelper {
 
 	private static final String NOTAVAILABLE = "NOTAVAILABLE";
-	private SimpleLogger logger;
 
 	private TryAgainHelper() {
 

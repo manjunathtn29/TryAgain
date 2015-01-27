@@ -3,14 +3,12 @@ package tryagain.sample.testng;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.paypal.test.utilities.logging.SimpleLogger;
 
 
 /**
  * testNG dataprovider
  */
 public class UnitTest6 {
-	private SimpleLogger logger;
 
 	@DataProvider(name = "myDataProvider")
 	public Object[][] data() {

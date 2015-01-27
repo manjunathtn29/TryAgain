@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
-import com.paypal.test.utilities.logging.SimpleLogger;
 
 import tryagain.objects.TestNGXmlSuiteData;
 
@@ -18,7 +17,6 @@ import tryagain.objects.TestNGXmlSuiteData;
 public class TryAgainAnalyzer implements IRetryAnalyzer {
 	private int retryCount = 0;
 	private int maxRetryCount = 0;
-	private SimpleLogger logger;
 	private static List<ITestResult> failedResults = new ArrayList<ITestResult>();
 
 	public static List<ITestResult> getFailedResults() {
@@ -31,7 +29,7 @@ public class TryAgainAnalyzer implements IRetryAnalyzer {
 			if (retryCount < maxRetryCount) {
 				String message = "TestCase : " + result.getName()
 						+ " failed. Hence FaledTestRetry is triggered. Retry count is " + retryCount + 1;
-				logger.warning(message);
+				System.out.println(message);
 				failedResults.add(result);
 				retryCount++;
 				return true;

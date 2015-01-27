@@ -11,7 +11,6 @@ import org.testng.asserts.IAssert;
 import org.testng.asserts.LoggingAssert;
 import org.testng.asserts.SoftAssert;
 import org.testng.collections.Maps;
-import com.paypal.test.utilities.logging.SimpleLogger;
 
 
 
@@ -25,12 +24,11 @@ import com.paypal.test.utilities.logging.SimpleLogger;
 
 public class UnitTest1 extends Thread  {
 	
-	private SimpleLogger logger;
 	
 
     @Test(groups = ("pass"),invocationCount=2)
     public void testDemo11() {
-    	logger.info("The current thread is :: - " + Thread.currentThread().getName());
+    	System.out.println("The current thread is :: - " + Thread.currentThread().getName());
         Assert.assertEquals(1, 2);
         
     }
@@ -38,13 +36,13 @@ public class UnitTest1 extends Thread  {
     @Test(groups = ("pass"))
     public void TestDemo12() {
     	
-    	logger.info("The current thread is :: - " + Thread.currentThread().getName());
+    	System.out.println("The current thread is :: - " + Thread.currentThread().getName());
         Assert.assertEquals(1, 1);
     }
 
 	@Test(groups = ("fail"))
     public void testDemo3()  {
-    	logger.info("The current thread is :: - " + Thread.currentThread().getName());
+		System.out.println("The current thread is :: - " + Thread.currentThread().getName());
         Assert.assertEquals(1, 2);
     }
 
@@ -52,7 +50,7 @@ public class UnitTest1 extends Thread  {
     // Note: Don't "abuse" soft asserts. Test methods should test "one thing".
     @Test(groups = ("fail"))
     public void testDemo14() {
-    	logger.info("The current thread testDemo4 is  :: - " + Thread.currentThread().getName());
+    	System.out.println("The current thread testDemo4 is  :: - " + Thread.currentThread().getName());
         SoftAssert softAssert = new SoftAssert();
 
         // Soft asserts allow a test to continue even on any assertion failure.
@@ -69,7 +67,7 @@ public class UnitTest1 extends Thread  {
     @Test(groups = ("pass"))
     public void testDemo15() {
         // Note: Use TestNG version 6.8.7
-    	logger.info("The current thread is :: - " + Thread.currentThread().getName());
+    	System.out.println("The current thread is :: - " + Thread.currentThread().getName());
         LoggingAssert loggingAssert = new LoggingAssert();
 
         // Allow test to log assertion message to the logger.

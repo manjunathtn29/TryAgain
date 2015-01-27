@@ -15,14 +15,12 @@ import org.testng.ITestResult;
 import org.testng.annotations.ITestAnnotation;
 import org.testng.xml.XmlSuite;
 
-import com.paypal.test.utilities.logging.SimpleLogger;
 
 import tryagain.objects.TestNGXmlSuiteData;
 import tryagain.objects.TryAgainParams;
 
 public class TryAgainListener implements IAnnotationTransformer, ISuiteListener, IInvokedMethodListener {
 	private String retryCount = null;
-	private SimpleLogger logger;
 
 	@SuppressWarnings("rawtypes")
 	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
@@ -42,7 +40,7 @@ public class TryAgainListener implements IAnnotationTransformer, ISuiteListener,
 		if (retryCount != null && !retryCount.trim().isEmpty()) {
 			TestNGXmlSuiteData.getInstance().setRetrycount(retryCount);
 		} else {
-			logger.info("Default value of retryCount parameter is 0, please set the value for retryCount");
+			System.out.println("Default value of retryCount parameter is 0, please set the value for retryCount");
 
 		}
 	}
@@ -53,7 +51,7 @@ public class TryAgainListener implements IAnnotationTransformer, ISuiteListener,
 		List<IInvokedMethod> allInvokedMethods = suite.getAllInvokedMethods();
 		List<ITestResult> failedResults = TryAgainAnalyzer.getFailedResults();
 
-		logger.info("Removing the duplicate entries from the TestNG failed test results");
+		System.out.println("Removing the duplicate entries from the TestNG failed test results");
 		for (IInvokedMethod eachMethod : allInvokedMethods) {
 			if (!eachMethod.isTestMethod()) {
 				continue;
